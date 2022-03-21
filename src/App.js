@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Filter from './Components/Filter';
 import './styles.css';
+import Products from './Components/Product_Slider';
 
 
 // const fs = require('casual');
@@ -66,7 +67,7 @@ function App() {
   return (
     <>
  <div>
-   <Filter/>
+   <Products/>
  </div>
     </>
   );
