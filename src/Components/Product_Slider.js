@@ -25,8 +25,12 @@ function Products() {
 
   for (let i = 0; i < 5; i += 1){
     thumbs.push(
-      <SwiperSlide  key={`slide-${i}`} tag= "li">
-        <img src={`https://picsum.photos/id/${i}/163/100`} className='hope2' alt = {`Thumbnail ${i}`}/>
+      <SwiperSlide  
+      key={`slide-${i}`} tag= "li">
+        <img 
+        src={`https://picsum.photos/id/${i}/163/100`} 
+        className='hope2' 
+        alt = {`Thumbnail ${i}`}/>
       </SwiperSlide>
     );
   }
@@ -67,6 +71,8 @@ function Products() {
         wrapperTag="ul"
         navigation
         pagination
+        // direction="vertical"
+        // loop={true}
         height={1}
         spaceBetween={0}
         slidesPerView="auto"
@@ -84,6 +90,8 @@ function Products() {
         id="thumbs"
         spaceBetween={5}
         slidesPerView={1}
+        // direction="vertical"
+        // loop={true}
         onSwiper={setThumbsSwiper}
         // thumbs={{swiper: controlledSwiper}}
         controller={{control: controlledSwiper}}
