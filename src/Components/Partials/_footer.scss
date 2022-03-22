@@ -1,0 +1,42 @@
+footer
+{
+display: flex;
+padding: 2vw;
+flex-direction: column-reverse;
+align-items: center;
+z-index: 90;
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+}
+
+
+.copyR
+{
+text-align: left;
+padding-top: 2vw;
+color: black;
+font-size: small;
+}
+
+
+.social
+{
+color: black;
+padding: 7vw;
+text-decoration: none;
+font-size: 2em;
+}
+
+.social:hover
+{
+opacity: 0.5;
+}
+
+i.fa-circle-thin
+{
+-webkit-text-stroke-color: black;
+-webkit-text-stroke-width:2px;
+paint-order: stroke;
+}
+

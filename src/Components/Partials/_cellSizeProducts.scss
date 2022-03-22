@@ -1,0 +1,81 @@
+@media (max-width: 500px)
+{
+#thumbs
+{
+position: relative;
+z-index: 11;
+overflow: visible;
+}
+
+#main
+{
+position: relative;
+z-index: 10;
+}
+
+
+.swiper-slide img.hope2 { 
+    transform: translateY(-200%);
+    width: 70%;
+    height: 20vh;
+    z-Index: 999;
+    position: relative;
+    display: block;
+    margin: auto;
+    border-radius: 1em;
+  }
+
+  /* div.swiper-button-next { 
+    color: red;
+    position: absolute;
+    top: 50%;
+    right: auto;
+   } */
+
+   
+  
+  /* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+  } */
+
+  .swiper-slide img.hope { 
+    /* transform: translateY(3em); */
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* z-Index: 2; */
+    position: absolute;
+  }
+
+  .swiper
+  {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    /* z-Index: -10; */
+    position: absolute;
+   /* transform: translateY(60%); */
+   /* display: inline; */
+  }
+
+  .swiper-wrapper{
+    /* padding-inline-start: 0; */
+    list-style: none;
+    /* width: 100%; */
+    /* left: 30%; */}
+
+    div.swiper-button-next::after, div.swiper-button-prev::after  
+    {
+    font-weight:900;
+    -webkit-text-stroke-width: 0.1em;
+    transform: translateY(300%);
+   }
+  }
+  
+  div.swiper-pagination {
+    
+   transform: translateY(-575%);
+}
