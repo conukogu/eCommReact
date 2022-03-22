@@ -68,11 +68,14 @@ function App() {
  
   return (
     <>
- <div>
+
    <Navbar/>
-   {/* <Products/>
-   <Footer/> */}
- </div>
+    <Products/>
+ <Footer/>
+
+ 
+
+
     </>
   );
 }

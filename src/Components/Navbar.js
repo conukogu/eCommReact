@@ -19,8 +19,14 @@ function Navbar() {
 
           <p class="close">
             <i class="fa fa-bars fa-3x hamburger"></i>
+
+            <a href="indexA.html">
             <img className="logo" src={img}></img>
-            <i class="fa fa-shopping-cart fa-3x shop"></i>
+            </a>
+
+            <a href="product.html">
+              <i class="fa fa-shopping-cart fa-3x shop"></i>
+            </a>
           </p>
 
           <div class="nav-links">
