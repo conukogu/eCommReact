@@ -3,6 +3,7 @@ import Filter from './Components/Filter';
 import './styles.css';
 import Products from './Components/Product_Slider';
 import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
 
 
 // const fs = require('casual');
@@ -68,8 +69,9 @@ function App() {
   return (
     <>
  <div>
-   <Products/>
-   <Footer/>
+   <Navbar/>
+   {/* <Products/>
+   <Footer/> */}
  </div>
     </>
   );
