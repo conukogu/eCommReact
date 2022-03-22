@@ -1,0 +1,120 @@
+
+//   .nav-links{
+//     float: right;
+//     list-style: none;
+//     padding: 0.67vw 1vw;
+//     position: relative 
+//   }
+//   .nav-links a{
+//     color: white;
+//     text-decoration: none;
+//     font-size: 1.67vw;
+//     font-family:'Open sans'; 
+//     padding: 1vw;
+//   }
+//   .nav-links a:hover{
+//     border-radius: 3em;
+//     background-color: white;
+//     height:2vh;
+//     color: black;
+  
+//   }
+// //   
+
+.close
+{
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  position: absolute;
+  top:0%;
+  left: 0%;
+//   color: transparent;
+  height: 10%;
+  padding:0;
+  margin: 0%;
+  transition: background-color 0.3s ease;
+  z-index: -10;
+}
+
+.hamburger{
+position: absolute;
+//   top:15%;
+left: 0%;
+ padding-left: 3%;
+ transform: translate(0%, 20%);
+}
+
+.shop{
+position: absolute;
+//   top:15%;
+right: 0%;
+ padding-right: 0%;
+ margin-right: 0%;
+ transform: translate(-25%, 20%);
+}
+
+img.logo
+{
+position: absolute;
+height:auto;
+width:23%;
+transform: translate(160%, -13%);
+//   text-align: center;
+}
+
+ .nav-links
+ {
+//    transform-origin: 0% 0%;
+   transform: translate(0%, -100%);
+   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+//    padding-left: 3%;
+   padding-top: 3%;
+   padding-bottom: 3%;
+   margin-bottom: 4%;
+   z-index: -1;
+   background: rgba(155, 5, 5, 0.363);
+    position: absolute; 
+    width:100%;
+ }
+
+ .nav-links a
+ {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: sans-serif;
+    padding: 0.5%;
+    padding-right: 5%;
+ }
+#menuToggle{
+    //  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+
+}
+ /*And let's slide it in from the left*/
+  
+ #menuToggle input:checked ~ .nav-links
+ {
+   transform: none;
+ }
+
+  #menuToggle input
+ { 
+    position: absolute;
+  top:3%;
+  left: 4.5%;
+  opacity: 0;
+ }
+
+  
+
+ #menuToggle input:checked ~ p.close
+ {
+    background-color: transparent;
+ }
+
+
+ #menuToggle input:checked ~ .close .hamburger
+ {
+    color: white;
+ }

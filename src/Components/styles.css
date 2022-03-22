@@ -132,9 +132,24 @@ i.fa-circle-thin {
 
 .hamburger {
   position: absolute;
-  top: 15%;
   left: 0%;
   padding-left: 3%;
+  transform: translate(0%, 20%);
+}
+
+.shop {
+  position: absolute;
+  right: 0%;
+  padding-right: 0%;
+  margin-right: 0%;
+  transform: translate(-25%, 20%);
+}
+
+img.logo {
+  position: absolute;
+  height: auto;
+  width: 23%;
+  transform: translate(160%, -13%);
 }
 
 .nav-links {
