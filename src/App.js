@@ -69,13 +69,10 @@ function App() {
   return (
     <>
 
-   <Navbar/>
+   {/* <Navbar/>
     <Products/>
- <Footer/>
-
- 
-
-
+ <Footer/> */}
+ <Filter/>
     </>
   );
 }
