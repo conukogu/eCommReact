@@ -1,51 +1,79 @@
-import React, { useRef, useState } from "react";
+import React, {useState } from "react";
+import PicSearch from "./PicSearch";
 import "./styles.css";
 import data from "./testy.json";
-import {Swiper, SwiperSlide} from "swiper/react";
-import { submit } from "dom7";
+import img1 from './Images/n1.jpeg';
+import img2 from "./Images/n2.jpg";
+import img3 from "./Images/n3.jpeg";
+import img4 from "./Images/n4.jpeg";
+import img5 from "./Images/n5.jpeg";
+import img6 from "./Images/n6.jpg";
 
-function Filter() {
+
+
+
+
+
+function Filter(props) {
   const [search, setSearch] = useState("Hello");
 
-  var collect = null;
+  const [picID, setPicID] = useState(null);
 
-  const arr3 = data.filter((item) =>
+  const [clearInput, setClearInput] = useState("");
+
+  // var collect = 1;
+
+  const arr1 = data.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase()) );
 
     
 
-  // const arr5 = arr3.map((item) => item.name);
+  var arr2=[];
 
-  var arr6=[];
+  function Help1()
+  {
+    console.log(`This is the picID: ${picID}`)
+  }
 
  
-const handleChange = (e) => {
+const handleSubmit = (e) => {
 
   e.preventDefault();
   console.log(`Submit: ${search}`)
 
-  arr6 = data.filter((item) =>
+  arr2 = data.filter((item) =>
     item.name === search)
 
-  arr6.map((item) => (
+  arr2.map((item) => 
+          (setPicID(item.id),
            console.log(item.id) ))
 
-};
+   console.log(`This is the picID: ${picID}`); 
+   
+   setClearInput("")
+  };
+
+  const handleChange=(e) =>{
+    setSearch(e.target.value)
+
+    setClearInput(e.target.value);
+  }
   
 
   return (
     <>
-      {search}
+      {/* {search} */}
 
-      <form onSubmit={(e) => handleChange(e)}>
+      <form className="homeSearch" onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           list="data"
-          onChange={(e) => setSearch(e.target.value)}
+          value={clearInput}
+          onChange={(e) => handleChange(e)}
         />
 
         <datalist id="data">
-          {arr3.map((item) => (
+          {arr1.map((item) => (
             <option key={item.id} value={item.name}>
               {item.name}
             </option>
@@ -53,6 +81,25 @@ const handleChange = (e) => {
         </datalist>
         <input type="submit" value="Submit"></input>
       </form>
+
+      <img
+        className="resultPic"
+        src={
+          picID === 1
+            ? img1
+            : picID === 2
+            ? img2
+            : picID === 3
+            ? img3
+            : picID === 4
+            ? img4
+            : picID === 5
+            ? img5
+            : picID === 6
+            ? img6
+            : null
+        }
+      ></img>
     </>
   );
 }

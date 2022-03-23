@@ -4,6 +4,7 @@ import './styles.css';
 import Products from './Components/Product_Slider';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
+import PicSearch from './Components/PicSearch';
 
 
 // const fs = require('casual');
@@ -69,9 +70,9 @@ function App() {
   return (
     <>
 
-   {/* <Navbar/>
-    <Products/>
- <Footer/> */}
+   <Navbar/>
+    {/* <Products/> */}
+ <Footer/> 
  <Filter/>
     </>
   );

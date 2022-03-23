@@ -204,4 +204,24 @@ i.fa-circle-thin {
   paint-order: stroke;
 }
 
+.homeSearch {
+  display: flex;
+  padding: 2vw;
+  flex-direction: column;
+  z-index: 20;
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+}
+
+img.resultPic {
+  top: 10%;
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  display: block;
+  margin: 0%;
+  padding: 0%;
+}
+
 /*# sourceMappingURL=styles.css.map */
