@@ -68,7 +68,9 @@ const handleSubmit = (e) => {
         <input
           type="text"
           list="data"
+          className="homeInput"
           value={clearInput}
+          placeholder="Search for Styles"
           onChange={(e) => handleChange(e)}
         />
 
@@ -79,27 +81,63 @@ const handleSubmit = (e) => {
             </option>
           ))}
         </datalist>
-        <input type="submit" value="Submit"></input>
+        <input className="homeSubmit" type="submit" value="Submit"></input>
       </form>
 
-      <img
-        className="resultPic"
-        src={
-          picID === 1
-            ? img1
-            : picID === 2
-            ? img2
-            : picID === 3
-            ? img3
-            : picID === 4
-            ? img4
-            : picID === 5
-            ? img5
-            : picID === 6
-            ? img6
-            : null
-        }
-      ></img>
+      {picID === null ? (
+        <p className="siteName">Aada Braids: African Hair Brading</p>
+      ) : (
+        <img
+          className="resultPic"
+          src={
+            picID === 1
+              ? img1
+              : picID === 2
+              ? img2
+              : picID === 3
+              ? img3
+              : picID === 4
+              ? img4
+              : picID === 5
+              ? img5
+              : picID === 6
+              ? img6
+              : null
+          }
+        ></img>
+      )}
+
+      {picID === null ? (
+        <div className="linkAndOr">
+          <button className="galleryLink">
+            {" "}
+            <p>Browse our Selection!</p>
+            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/conukogu/eComm/sec/product.html"></a>
+          </button>
+          <p className="OR">OR</p>
+        </div>
+      ) : null}
+
+      {picID === null ? null : (
+        <>
+          <div className="homeCart">
+            <button className="homeCartbutton">
+              <p>Add to Cart</p>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </button>
+          </div>
+          <div className="galleryInvite">
+            <p>Like what you see?</p>
+            <button>Browse our full selection!</button>
+          </div>
+        </>
+      )}
     </>
   );
 }

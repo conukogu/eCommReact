@@ -1,22 +1,139 @@
 .homeSearch{
-    display: flex;
+display: flex;
 padding: 2vw;
 flex-direction: column;
 z-index: 20;
  position: absolute;
- bottom: 25%;
+ bottom: 18%;
  width: 100%;
+align-items: center;
 }
 
  img.resultPic { 
 
+    top: 23%;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    height: 45vh;
+    position: absolute;
+    object-fit: cover;
+    border-radius: 1em;
+  }
+
+  input.homeInput, .homeSubmit
+  {
+   margin: 1.5%;
+  }
+
+
+  input.homeInput
+  {
+   padding: 2%;
+  width: 60%;
+  border-radius: 1em;
+  }
+
+   input.homeSubmit
+  {
+   padding: 1%;
+  width: 20%;
+  border-radius: 1em;
+  }
+
+  .homeSearch input::placeholder{
+        text-align: center;
+  }
+
+  div.homeCart{
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    z-index: 20;
+    position: absolute;
+    bottom: 33%;
+    width: 100%;
+    align-items: center;
+  }
+
+  .homeCartbutton
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 32%;
+  }
+
+  .homeCartbutton p
+  {
+    padding-left: 5%;
+    padding-right: 1%;
+  }
+
+   div.galleryInvite{
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    z-index: 20;
+    position: absolute;
     top: 10%;
     width: 100%;
-    height: 75vh;
-    // z-Index: 19;
-    position: absolute;
-    display: block;
-    margin: 0%;
-    padding: 0%;
-    // border-radius: 1em;
+    align-items: center;
   }
+
+   .galleryInvite button, .galleryInvite p
+   {
+       padding: 1%;
+   }
+
+   .galleryInvite button
+   {
+        border-radius: 0.5em;font-size: 0.87em;
+   }
+
+   .galleryInvite p
+   {
+      font-size: 1.5em;
+   }
+
+   .siteName
+   {
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    z-index: 20;
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    align-items: center;
+   }
+
+   .linkAndOr{
+    display: flex;
+    padding: 2vw;
+    flex-direction: column;
+    z-index: 20;
+    position: absolute;
+    bottom: 30%;
+    font-size: 1.5em;
+    width: 100%;
+    text-align: center;
+    align-items: center;   
+   }
+
+   .galleryLink p {
+       font-size: 1.2em;
+       padding: 3%;
+       border-radius: 1em;
+   }
+
+    .galleryLink {
+       border-radius: 1em;
+   }
+
+   .OR{
+       font-size: 0.6em;
+       padding: 1%;
+   }
