@@ -6,7 +6,7 @@ import img from './Images/h1.png'
 
 
 
-function Navbar() {
+function Navbar({menuOpen, setMenuOpen}) {
   return (
     <>
       <link
@@ -15,27 +15,32 @@ function Navbar() {
       ></link>
       <nav>
         <div id="menuToggle">
-          <input type="checkbox"></input>
+          <input 
+          type="checkbox"
+          value={menuOpen}
+          onChange={()=>setMenuOpen(!menuOpen)}
+          ></input>
+       
 
-          <p class="close">
-            <i class="fa fa-bars fa-3x hamburger"></i>
+        <p className="close">
+          <i className="fa fa-bars fa-3x hamburger"></i>
 
-            <a href="indexA.html">
+          <a href="indexA.html">
             <img className="logo" src={img}></img>
-            </a>
+          </a>
 
-            <a href="product.html">
-              <i class="fa fa-shopping-cart fa-3x shop"></i>
-            </a>
-          </p>
+          <a href="product.html">
+            <i className="fa fa-shopping-cart fa-3x shop"></i>
+          </a>
+        </p>
 
-          <div class="nav-links">
-            <a href="indexA.html">HOME</a>
-            <a href="product.html">PRODUCTS</a>
-            <a href="cart.html">CART</a>
-            <a href="contact.html">CONTACT</a>
-          </div>
+        <div className="nav-links">
+          <a href="indexA.html">HOME</a>
+          <a href="product.html">PRODUCTS</a>
+          <a href="cart.html">CART</a>
+          <a href="contact.html">CONTACT</a>
         </div>
+         </div>
       </nav>
     </>
   );

@@ -69,22 +69,22 @@ transform: translate(160%, -13%);
    padding-top: 3%;
    padding-bottom: 3%;
    margin-bottom: 4%;
-  
+  text-align: right;
    background: rgba(155, 5, 5, 0.363);
     position: absolute; 
     width:100%;
      display: flex;
     flex-direction: column;
     align-items: flex-end;
-     z-index: 15;
+    z-index: 13;
  }
 
  .nav-links a
  {
-   
     font-family: sans-serif;
     padding: 0.5%;
     padding-right: 5%;
+    width: 30%;
  }
 #menuToggle{
     //  background-color: rgba(0, 0, 0, 0.5);
@@ -98,11 +98,15 @@ transform: translate(160%, -13%);
    transform: none;
  }
 
-  #menuToggle input
+ #menuToggle input
  { 
-    position: absolute;
-  top:3%;
-  left: 4.5%;
+  position: absolute;
+  top: 2.5%;
+   padding: 0;
+   margin: 0;
+  width: 11%;
+  height:5%;
+  left: 3%;
   opacity: 0;
   z-index: 20;
  }

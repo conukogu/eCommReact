@@ -14,7 +14,7 @@ import img6 from "./Images/n6.jpg";
 
 
 
-function Filter(props) {
+function Filter({menuOpen}) {
   const [search, setSearch] = useState("Hello");
 
   const [picID, setPicID] = useState(null);
@@ -118,7 +118,7 @@ const handleSubmit = (e) => {
         </div>
       ) : null}
 
-      {picID === null ? null : (
+      {picID &&  (
         <>
           <div className="homeCart">
             <button className="homeCartbutton">
@@ -132,10 +132,10 @@ const handleSubmit = (e) => {
               </select>
             </button>
           </div>
-          <div className="galleryInvite">
+          {!menuOpen && <div className="galleryInvite">
             <p>Like what you see?</p>
             <button>Browse our full selection!</button>
-          </div>
+          </div>}
         </>
       )}
     </>

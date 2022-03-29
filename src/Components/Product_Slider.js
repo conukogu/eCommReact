@@ -3,6 +3,10 @@ import {Swiper, SwiperSlide} from 'swiper/react'
 import SwiperCore, {Navigation, Pagination, Controller, Thumbs} from 'swiper'
 import  'swiper/css/bundle';
 import './styles.css';
+import ImageData from './Pics';
+import Blurb from './ProductBlurb'
+import CheckoutButton from './CheckoutButton'
+
 
 SwiperCore.use([Navigation, Pagination, Controller,  Thumbs]);
 
@@ -27,10 +31,15 @@ function Products() {
     thumbs.push(
       <SwiperSlide  
       key={`slide-${i}`} tag= "li">
-        <img 
+        {/* <img 
         src={`https://picsum.photos/id/${i}/163/100`} 
         className='hope2' 
-        alt = {`Thumbnail ${i}`}/>
+        alt = {`Thumbnail ${i}`}/> */}
+        <div className='hope2'> 
+        <CheckoutButton className="homeCartbutton"/>
+        { Blurb[i]} 
+        </div>
+       
       </SwiperSlide>
     );
   }
@@ -46,13 +55,15 @@ function Products() {
   }
 
   const slides3 =[]
-    
+
   for (let i = 0; i < 5; i += 1){
     slides3.push(
-      <SwiperSlide  key={`slide-${i}`} tag= "li">
-        <img src={`https://source.unsplash.com/random/800x800/?img=1`} alt = {`Thumbnail ${i}`} 
-        className='hope'
-       />
+      <SwiperSlide key={`slide-${i}`} tag="li">
+        <img
+          src={ImageData[i]}
+          alt={`Thumbnail ${i}`}
+          className="hope"
+        />
       </SwiperSlide>
     );
   }

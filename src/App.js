@@ -5,6 +5,7 @@ import Products from './Components/Product_Slider';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import PicSearch from './Components/PicSearch';
+import Form from './Components/Form';
 
 
 // const fs = require('casual');
@@ -65,15 +66,18 @@ import PicSearch from './Components/PicSearch';
 
 
 function App() {
+
+  const [menuOpen, setMenuOpen] = useState(false)
     
  
   return (
     <>
+      <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+      {/* <Products/> */}
+      {/* <Filter menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
 
-   <Navbar/>
-    {/* <Products/> */}
- <Footer/> 
- <Filter/>
+      <Form/>
+      <Footer />
     </>
   );
 }

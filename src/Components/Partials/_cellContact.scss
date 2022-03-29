@@ -1,0 +1,57 @@
+.contactForm{
+display: flex;
+padding: 2vw;
+flex-direction: column;
+z-index: 20;
+ position: absolute;
+ bottom: 17%;
+ width: 100%;
+align-items: center;
+}
+
+.contactForm input, .contactForm textarea, .contactForm label
+{
+ width: 70%;
+ padding-top: 3%;
+}
+
+.contactForm label
+{
+text-align: left;
+font-size: 0.79rem;
+font-family: Geneva, Verdana, sans-serif;
+font-weight: bold;
+}
+
+.contactForm input
+{
+  height: 4.5vh ;  
+  border-left: 1em;
+  border-right: 1em;
+  border-top: 1em;
+  border-color: grey;
+  border-bottom-width: 0.2em;
+}
+
+.contactForm textarea
+{
+  height: 17vh;
+  border-left: 1em;
+  border-right: 1em;
+  border-top: 1em;
+  border-color: grey;
+  border-bottom-width: 0.2em;
+  margin-bottom: 5%;
+}
+
+.areaLabel
+{
+    margin-top: 2%;
+}
+
+.contactForm button
+{
+   width: 50%;
+  height: 5vh; 
+  border-radius: 1em; 
+}
