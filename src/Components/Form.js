@@ -1,30 +1,52 @@
-import { number } from "prop-types";
+
 import React, { useState, useEffect } from "react"
 import Axios from "axios"
 
 
 function Form (){
 const [firstName, setFirstName] = useState('')
-const [formPassword,  setFormPassword] = useState('')
+const [lastName, setLastName] = useState('')
+
+const [emailAdd, setEmailAdd] = useState('');
+const [phoneNum, setPhoneNum] = useState('');
+
+const [message, setMessage] = useState('');
+
+
 const [formList, setFormList] = useState([]);
+
+const [confirmation, setConfirmation] = useState(false)
+
+var x=""
 
 useEffect(() => {
   Axios.get('http://localhost:3001/api/get').then((response) => {
-    // console.log(response.data)
+    // console.log(response.data[response.data.length-2]);
     setFormList(response.data)
   })
-}, [])
+}, [formList])
 
-const submitPassword = (e) => {
+
+const submitFullForm = (e) => {
   e.preventDefault()
-  Axios.post("http://localhost:3001/api/insert", {user_name: firstName, user_password: formPassword}).then(()=> {
+  Axios.post("http://localhost:3001/api/insert", {FirstName: firstName, 
+  LastName: lastName,
+  Email:emailAdd,
+  PhoneNumber:phoneNum,
+  Message: message}).then(()=> {
     alert("Sucsessful Insert!")
   });
+  setConfirmation(true)
+}
+
+const FormOk = (e) =>{
+  e.preventDefault()
+  setConfirmation(false)
 }
 
     return (
       <>
-        <form className="contactForm">
+        {confirmation===false ? (<form className="contactForm">
           <label>First Name:</label>
           <input
             name="fName"
@@ -36,42 +58,53 @@ const submitPassword = (e) => {
           <input
             name="lName"
             type="text"
-            onChange={(e) => setFormPassword(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
           ></input>
 
           <label>Email:</label>
-          <input type="email"></input>
+          <input
+            name="emailAdd"
+            type="email"
+            onChange={(e) => setEmailAdd(e.target.value)}
+          ></input>
 
           <label>Phone Number:</label>
-          <input type="tel"></input>
+          <input
+            name="telNum"
+            type="tel"
+            onChange={(e) => setPhoneNum(e.target.value)}
+          ></input>
 
           <label className="areaLabel">
             Anything else you would like us to know?
           </label>
-          <textarea></textarea>
+          <textarea
+            name="message"
+            type="text"
+            onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
 
-          <button type="submit" onClick={submitPassword}>
+          <button type="submit" onClick={submitFullForm}>
             Submit
           </button>
         </form>
+        ) :
 
-        {formList.map((item) => {
-          return (
-          <ul>
-          <li>Username: {item.user_name}</li>
-
-          <li>
-            Password: {item.user_password}
-          </li>
-
-          <li>
-            {"\n"}
-          </li>
-          </ul>
-          )
-        })}
-      </>
-    );
+        ( 
+          
+          <div>     
+        {formList[formList.length-1].Email}
+       
+                   
+          
+          <button type="submit" onClick={FormOk}>
+            OK
+          </button>
+          </div>
+         
+        )
 }
+ </>
+    )}
 
 export default Form
