@@ -74,9 +74,9 @@ function App() {
     <>
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       {/* <Products/> */}
-      {/* <Filter menuOpen={menuOpen} setMenuOpen={setMenuOpen} /> */}
+      <Filter menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      <Form/>
+      {/* <Form/> */}
       <Footer />
     </>
   );

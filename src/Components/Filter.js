@@ -9,6 +9,8 @@ import img4 from "./Images/n4.jpeg";
 import img5 from "./Images/n5.jpeg";
 import img6 from "./Images/n6.jpg";
 
+import ImageData from "./Pics";
+
 
 
 
@@ -83,28 +85,22 @@ const handleSubmit = (e) => {
         </datalist>
         <input className="homeSubmit" type="submit" value="Submit"></input>
       </form>
+      
 
       {picID === null ? (
         <p className="siteName">Aada Braids: African Hair Brading</p>
       ) : (
+        
         <img
           className="resultPic"
-          src={
-            picID === 1
-              ? img1
-              : picID === 2
-              ? img2
-              : picID === 3
-              ? img3
-              : picID === 4
-              ? img4
-              : picID === 5
-              ? img5
-              : picID === 6
-              ? img6
+          src={ 
+            picID != null
+              ? ImageData[picID-1]
               : null
           }
         ></img>
+        
+
       )}
 
       {picID === null ? (
