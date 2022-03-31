@@ -41,10 +41,16 @@ body, html {
 img.logo {
   position: absolute;
   height: auto;
-  width: 23%;
+  width: 23vw;
   transform: translate(160%, -13%);
 }
 
+@media (min-width: 500px) {
+  img.logo {
+    width: 9vw;
+    transform: translate(500%, -13%);
+  }
+}
 .nav-links {
   transform: translate(0%, -100%);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
@@ -61,7 +67,7 @@ img.logo {
   z-index: 13;
 }
 
-.nav-links a {
+.nl {
   font-family: sans-serif;
   padding: 0.5%;
   padding-right: 5%;
@@ -91,10 +97,11 @@ img.logo {
 
 #menuToggle input:checked ~ p.close {
   background-color: transparent;
+  z-index: 5;
 }
 
 #menuToggle input:checked ~ .close .hamburger {
-  color: white;
+  color: blue;
 }
 
 #menuToggle input:checked ~ .close .logo {
@@ -114,7 +121,7 @@ img.logo {
 
   #main {
     position: relative;
-    z-index: 10;
+    z-index: 1;
   }
 
   .swiper-slide .hope2 {
@@ -169,7 +176,6 @@ img.logo {
     display: block;
     width: 100%;
     height: 100vh;
-    /* z-Index: -10; */
     position: absolute;
     /* transform: translateY(60%); */
     /* display: inline; */
@@ -407,6 +413,18 @@ div.galleryInvite {
   width: 50%;
   height: 5vh;
   border-radius: 1em;
+}
+
+.check {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding-top: 3%;
+  bottom: 50%;
+  left: 15%;
+  text-align: center;
+  position: absolute;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

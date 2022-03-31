@@ -1,7 +1,9 @@
-import { styles } from "dom7";
+
 import React, {useState} from "react";
 import './styles.css'
 import img from './Images/h1.png'
+import {Link} from "react-router-dom";
+
 
 
 
@@ -15,32 +17,47 @@ function Navbar({menuOpen, setMenuOpen}) {
       ></link>
       <nav>
         <div id="menuToggle">
-          <input 
-          type="checkbox"
-          value={menuOpen}
-          onChange={()=>setMenuOpen(!menuOpen)}
+          <input
+            type="checkbox"
+            value={menuOpen}
+            onChange={() => setMenuOpen(!menuOpen)}
           ></input>
-       
 
-        <p className="close">
-          <i className="fa fa-bars fa-3x hamburger"></i>
+          <p className="close">
+            <i className="fa fa-bars fa-3x hamburger"></i>
 
-          <a href="indexA.html">
-            <img className="logo" src={img}></img>
-          </a>
+             <Link className="nl" to= '/'>
+              <img className="logo" src={img}></img>
+            </Link>
 
-          <a href="product.html">
-            <i className="fa fa-shopping-cart fa-3x shop"></i>
-          </a>
-        </p>
+            <Link className="nl" to= '/cart'>
+              <i className="fa fa-shopping-cart fa-3x shop"></i>
+            </Link>
+          </p>
 
-        <div className="nav-links">
-          <a href="indexA.html">HOME</a>
-          <a href="product.html">PRODUCTS</a>
-          <a href="cart.html">CART</a>
-          <a href="contact.html">CONTACT</a>
+          <div className="nav-links">
+            <Link className="nl" to= '/'>
+              HOME
+            </Link>
+
+            <Link className="nl" to= '/shop'>
+              PRODUCTS
+            </Link>
+
+            <Link className="nl" to= '/cart'>
+              CART
+            </Link>
+
+            <Link className="nl" to= '/contact'>
+              CONTACT
+            </Link>
+
+            {/* <a href="indexA.html">HOME</a>
+            <a href="product.html">PRODUCTS</a>
+            <a href="cart.html">CART</a>
+            <a href="contact.html">CONTACT</a> */}
+          </div>
         </div>
-         </div>
       </nav>
     </>
   );

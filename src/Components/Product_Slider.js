@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react'
 import SwiperCore, {Navigation, Pagination, Controller, Thumbs} from 'swiper'
 import  'swiper/css/bundle';
@@ -6,6 +6,7 @@ import './styles.css';
 import ImageData from './Pics';
 import Blurb from './ProductBlurb'
 import CheckoutButton from './CheckoutButton'
+import Axios from 'axios'
 
 
 SwiperCore.use([Navigation, Pagination, Controller,  Thumbs]);
@@ -17,7 +18,7 @@ function Products() {
   
   const slides =[];
 
-  for (let i = 0; i < 5; i += 1){
+  for (let i = 0; i < 12; i += 1){
     slides.push(
       <SwiperSlide  key={`slide-${i}`} tag= "li">
         <img src={`https://picsum.photos/id/${i+1}/500/300`} alt = {`Slide ${i}`}/>
@@ -27,7 +28,7 @@ function Products() {
 
   const thumbs =[];
 
-  for (let i = 0; i < 5; i += 1){
+  for (let i = 0; i < 12; i += 1){
     thumbs.push(
       <SwiperSlide  
       key={`slide-${i}`} tag= "li">
@@ -56,7 +57,7 @@ function Products() {
 
   const slides3 =[]
 
-  for (let i = 0; i < 5; i += 1){
+  for (let i = 0; i < 12; i += 1){
     slides3.push(
       <SwiperSlide key={`slide-${i}`} tag="li">
         <img
@@ -67,6 +68,8 @@ function Products() {
       </SwiperSlide>
     );
   }
+
+    const [productList, setProductList] = useState([]);
   
 
 

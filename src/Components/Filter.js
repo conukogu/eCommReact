@@ -1,14 +1,8 @@
-import React, {useState } from "react";
-import PicSearch from "./PicSearch";
+import React, {useState, useEffect } from "react";
+import Axios from "axios";
+import PicSearch from "./PriceSearch";
 import "./styles.css";
-import data from "./testy.json";
-import img1 from './Images/n1.jpeg';
-import img2 from "./Images/n2.jpg";
-import img3 from "./Images/n3.jpeg";
-import img4 from "./Images/n4.jpeg";
-import img5 from "./Images/n5.jpeg";
-import img6 from "./Images/n6.jpg";
-
+// import data from "./testy.json";
 import ImageData from "./Pics";
 
 
@@ -23,10 +17,19 @@ function Filter({menuOpen}) {
 
   const [clearInput, setClearInput] = useState("");
 
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/product/get").then((response) => {
+      // console.log(response.data[response.data.length-2]);
+      setProductList(response.data);
+    });
+  }, [productList]);
+
   // var collect = 1;
 
-  const arr1 = data.filter((item) =>
-    item.name.toLowerCase().includes(search.toLowerCase()) );
+  const arr1 = productList.filter((item) =>
+    item.ProductName.toLowerCase().includes(search.toLowerCase()) );
 
     
 
@@ -43,8 +46,8 @@ const handleSubmit = (e) => {
   e.preventDefault();
   console.log(`Submit: ${search}`)
 
-  arr2 = data.filter((item) =>
-    item.name === search)
+  arr2 = productList.filter((item) =>
+    item.ProductName === search)
 
   arr2.map((item) => 
           (setPicID(item.id),
@@ -78,8 +81,8 @@ const handleSubmit = (e) => {
 
         <datalist id="data">
           {arr1.map((item) => (
-            <option key={item.id} value={item.name}>
-              {item.name}
+            <option key={item.id} value={item.ProductName}>
+              {item.ProductName}
             </option>
           ))}
         </datalist>

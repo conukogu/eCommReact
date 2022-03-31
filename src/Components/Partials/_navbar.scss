@@ -51,14 +51,25 @@ right: 0%;
  transform: translate(-25%, 20%);
 }
 
+
 img.logo
 {
 position: absolute;
 height:auto;
-width:23%;
+width:23vw;
 transform: translate(160%, -13%);
+}
+
+@media (min-width: 500px){
+
+  img.logo{
+     width:9vw;
+     transform: translate(500%, -13%);
 //   text-align: center;
 }
+}
+
+
 
  .nav-links
  {
@@ -79,7 +90,7 @@ transform: translate(160%, -13%);
     z-index: 13;
  }
 
- .nav-links a
+ .nl
  {
     font-family: sans-serif;
     padding: 0.5%;
@@ -116,12 +127,12 @@ transform: translate(160%, -13%);
  #menuToggle input:checked ~ p.close
  {
     background-color: transparent;
+    z-index: 5;
  }
-
 
  #menuToggle input:checked ~ .close .hamburger
  {
-    color: white;
+    color: blue;
  }
 
  #menuToggle input:checked ~ .close .logo
