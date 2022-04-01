@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Axios from "axios";
-import PicSearch from "./PriceSearch";
+import PicSearch from "./Pricesearch";
 import "./styles.css";
 // import data from "./testy.json";
 import ImageData from "./Pics";

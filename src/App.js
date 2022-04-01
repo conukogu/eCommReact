@@ -6,7 +6,7 @@ import Products from './Components/Product_Slider';
 import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import Form from './Components/Form';
-import PriceSearch from './Components/PriceSearch';
+import PriceSearch from './Components/Pricesearch';
 import Blurb from './Components/ProductBlurb';
 
 
