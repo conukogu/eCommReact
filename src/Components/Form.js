@@ -19,21 +19,23 @@ const [confirmation, setConfirmation] = useState(false)
 
 
 useEffect(() => {
-  Axios.get('http://localhost:3001/form/get').then((response) => {
+  Axios.get("https://aada-braids.herokuapp.com/form/get").then((response) => {
     // console.log(response.data[response.data.length-2]);
-    setFormList(response.data)
-  })
+    setFormList(response.data);
+  });
 }, [formList])
 
 
 const submitFullForm = (e) => {
   e.preventDefault()
-  Axios.post("http://localhost:3001/form/insert", {FirstName: firstName, 
-  LastName: lastName,
-  Email:emailAdd,
-  PhoneNumber:phoneNum,
-  Message: message}).then(()=> {
-    alert("Sucsessful Insert!")
+  Axios.post("https://aada-braids.herokuapp.com/form/insert", {
+    FirstName: firstName,
+    LastName: lastName,
+    Email: emailAdd,
+    PhoneNumber: phoneNum,
+    Message: message,
+  }).then(() => {
+    alert("Sucsessful Insert!");
   });
   setConfirmation(true)
 }

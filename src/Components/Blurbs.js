@@ -1,71 +1,65 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import Axios from "axios";
-import PicSearch from "./Pricesearch";
+import PicSearch from "./PriceSearch";
 import "./styles.css";
 // import data from "./testy.json";
 import ImageData from "./Pics";
 
-
-
-
-
-
-function Filter({menuOpen}) {
+function Blurb({menuOpen}) {
   const [search, setSearch] = useState("Hello");
 
-  const [picID, setPicID] = useState(null);
+  const [picID, setPicID] = useState([]);
 
   const [clearInput, setClearInput] = useState("");
 
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://aada-braids.herokuapp.com/product/get").then(
-      (response) => {
-        // console.log(response.data[response.data.length-2]);
-        setProductList(response.data);
-      }
-    );
+    Axios.get("http://localhost:3001/product/get").then((response) => {
+      // console.log(response.data[response.data.length-2]);
+      setProductList(response.data);
+    });
   }, [productList]);
 
   // var collect = 1;
 
   const arr1 = productList.filter((item) =>
-    item.ProductName.toLowerCase().includes(search.toLowerCase()) );
+    item.ProductName.toLowerCase().includes(search.toLowerCase())
+  );
 
-    
+  var arr2 = [];
 
-  var arr2=[];
-
-  function Help1()
-  {
-    console.log(`This is the picID: ${picID}`)
+  function Help1() {
+    console.log(`This is the picID: ${picID}`);
   }
 
- 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(`Submit: ${search}`);
 
-  e.preventDefault();
-  console.log(`Submit: ${search}`)
+    arr2 = productList.filter((item) => item.Price < search);
 
-  arr2 = productList.filter((item) =>
-    item.ProductName === search)
+    setPicID(arr2.id);
 
-  arr2.map((item) => 
-          (setPicID(item.id),
-           console.log(item.id) ))
+    // arr2.map((item) => (setPicID(item.id), console.log(item.id)));
 
-   console.log(`This is the picID: ${picID}`); 
-   
-   setClearInput("")
+    console.log(`This is the picID: ${(arr2, ["ProductName"])}`);
+
+    var arr3 = JSON.stringify(arr2, "ProductName");
+
+    var array = JSON.parse(arr3);
+
+    console.log(arr3);
+    console.log(array[4].ProductName);
+
+    setClearInput("");
   };
 
-  const handleChange=(e) =>{
-    setSearch(e.target.value)
+  const handleChange = (e) => {
+    setSearch(e.target.value);
 
     setClearInput(e.target.value);
-  }
-  
+  };
 
   return (
     <>
@@ -83,29 +77,21 @@ const handleSubmit = (e) => {
 
         <datalist id="data">
           {arr1.map((item) => (
-            <option key={item.id} value={item.ProductName}>
+            <option key={item.id} value={item.Price}>
               {item.ProductName}
             </option>
           ))}
         </datalist>
         <input className="homeSubmit" type="submit" value="Submit"></input>
       </form>
-      
 
       {picID === null ? (
         <p className="siteName">Aada Braids: African Hair Brading</p>
       ) : (
-        
         <img
           className="resultPic"
-          src={ 
-            picID != null
-              ? ImageData[picID-1]
-              : null
-          }
+          src={picID != null ? ImageData[picID - 1] : null}
         ></img>
-        
-
       )}
 
       {picID === null ? (
@@ -119,7 +105,7 @@ const handleSubmit = (e) => {
         </div>
       ) : null}
 
-      {picID &&  (
+      {picID && (
         <>
           <div className="homeCart">
             <button className="homeCartbutton">
@@ -133,14 +119,16 @@ const handleSubmit = (e) => {
               </select>
             </button>
           </div>
-          {!menuOpen && <div className="galleryInvite">
-            <p>Like what you see?</p>
-            <button>Browse our full selection!</button>
-          </div>}
+          {!menuOpen && (
+            <div className="galleryInvite">
+              <p>Like what you see?</p>
+              <button>Browse our full selection!</button>
+            </div>
+          )}
         </>
       )}
     </>
   );
 }
 
-export default Filter;
+export default Blurb;
