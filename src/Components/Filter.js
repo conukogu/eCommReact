@@ -20,7 +20,7 @@ function Filter({menuOpen}) {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://aada-braids.herokuapp.com").then(
+    Axios.get("https://aada-braids.herokuapp.com/product/get").then(
       (response) => {
         // console.log(response.data[response.data.length-2]);
         setProductList(response.data);
