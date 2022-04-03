@@ -26,12 +26,12 @@ function Filter({menuOpen}) {
         setProductList(response.data);
       }
     );
-  }, [productList]);
+  }, []);
 
   // var collect = 1;
 
   const arr1 = productList.filter((item) =>
-    item.ProductName.includes(search) );
+    item.ProductName.toLowerCase().includes(search.toLowerCase()) );
 
     
 
