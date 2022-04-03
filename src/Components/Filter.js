@@ -17,17 +17,7 @@ function Filter({menuOpen}) {
 
   const [clearInput, setClearInput] = useState("");
 
-  const [productList, setProductList] = useState([
-    {
-      row: 5,
-      id: 44,
-      ProductName: "Fünf",
-      Price: 300,
-      Description:
-        "Ey",
-      Amount: null,
-    },
-  ]);
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     Axios.get("https://aada-braids.herokuapp.com/product").then(
