@@ -30,7 +30,7 @@ function Filter({menuOpen}) {
 
   // var collect = 1;
 
-  const arr1 = productList[0].filter((item) =>
+  const arr1 = productList.filter((item) =>
     item.ProductName.toLowerCase().includes(search.toLowerCase()) );
 
     
