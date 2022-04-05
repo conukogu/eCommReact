@@ -26,7 +26,7 @@ function Filter({menuOpen}) {
         setProductList(response.data);
       }
     );
-  }, [productList]);
+  }, []);
 
   // var collect = 1;
 
