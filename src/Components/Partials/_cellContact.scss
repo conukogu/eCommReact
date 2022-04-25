@@ -2,11 +2,19 @@
 display: flex;
 padding: 2vw;
 flex-direction: column;
-z-index: 20;
+// z-index: 20;
  position: absolute;
- bottom: 17%;
  width: 100%;
 align-items: center;
+    /* margin-top: -5vh; */
+    bottom: 10vh;
+}
+
+@media(min-width: 500px) {
+  .contactForm{
+        width: 50%;
+        bottom: 5vh;
+  }
 }
 
 .contactForm input, .contactForm textarea, .contactForm label
@@ -35,7 +43,7 @@ font-weight: bold;
 
 .contactForm textarea
 {
-  height: 17vh;
+  height: 12vh;
   border-left: 1em;
   border-right: 1em;
   border-top: 1em;

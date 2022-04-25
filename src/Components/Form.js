@@ -19,23 +19,37 @@ const [confirmation, setConfirmation] = useState(false)
 
 
 useEffect(() => {
-  Axios.get("https://aada-braids.herokuapp.com/form/get").then((response) => {
+  Axios.get('http://localhost:3001/form/get').then((response) => {
     // console.log(response.data[response.data.length-2]);
-    setFormList(response.data);
-  });
+    setFormList(response.data)
+  })
 }, [formList])
+
+  const [phoneSize, setPhoneSize] = useState(660 > window.innerHeight);
+
+      const updateMedia = () => {
+        setPhoneSize(660 > window.innerHeight);
+      };
+
+     useEffect(() => {
+       // Applying on mount
+       {phoneSize
+         ? (document.body.style.overflow = "hidden")
+         : (document.body.style.overflow = "visible");}
+      }, []);
+
+      
+
 
 
 const submitFullForm = (e) => {
   e.preventDefault()
-  Axios.post("https://aada-braids.herokuapp.com/form/insert", {
-    FirstName: firstName,
-    LastName: lastName,
-    Email: emailAdd,
-    PhoneNumber: phoneNum,
-    Message: message,
-  }).then(() => {
-    alert("Sucsessful Insert!");
+  Axios.post("http://localhost:3001/form/insert", {FirstName: firstName, 
+  LastName: lastName,
+  Email:emailAdd,
+  PhoneNumber:phoneNum,
+  Message: message}).then(()=> {
+    alert("Sucsessful Insert!")
   });
   setConfirmation(true)
 }

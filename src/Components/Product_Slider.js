@@ -2,17 +2,33 @@ import React, {useState, useEffect} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react'
 import SwiperCore, {Navigation, Pagination, Controller, Thumbs} from 'swiper'
 import  'swiper/css/bundle';
-import './styles.css';
+import './main.css';
 import ImageData from './Pics';
 import Blurb from './ProductBlurb'
 import CheckoutButton from './CheckoutButton'
 import Axios from 'axios'
 
 
-SwiperCore.use([Navigation, Pagination, Controller,  Thumbs]);
+
+SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
+
+
+
 
 
 function Products() {
+
+
+   useEffect(() => {
+     // Applying on mount
+     document.body.style.overflow = "hidden";
+     // Applying on unmount
+     return () => {
+       document.body.style.overflow = "visible";
+     };
+   }, []);
+
+   
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [controlledSwiper, setControlledSwiper] = useState(null);
   
@@ -83,8 +99,10 @@ function Products() {
         controller={{control: thumbsSwiper}}
         tag="section"
         wrapperTag="ul"
-        navigation
-        pagination
+          // navigation 
+        // pagination
+       
+        
         // direction="vertical"
         // loop={true}
         height={1}
@@ -107,6 +125,7 @@ function Products() {
         // direction="vertical"
         // loop={true}
         onSwiper={setThumbsSwiper}
+        navigation
         // thumbs={{swiper: controlledSwiper}}
         controller={{control: controlledSwiper}}
       >

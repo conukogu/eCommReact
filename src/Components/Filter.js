@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
 import Axios from "axios";
-import PicSearch from "./Pricesearch";
-import "./styles.css";
+import PicSearch from "./PriceSearch";
+import "./main.css";
 // import data from "./testy.json";
 import ImageData from "./Pics";
 
@@ -20,12 +20,10 @@ function Filter({menuOpen}) {
   const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://aada-braids.herokuapp.com/product").then(
-      (response) => {
-        // console.log(response.data[response.data.length-2]);
-        setProductList(response.data);
-      }
-    );
+    Axios.get("http://localhost:3001/product/get").then((response) => {
+      // console.log(response.data[response.data.length-2]);
+      setProductList(response.data);
+    });
   }, []);
 
   // var collect = 1;
@@ -52,8 +50,8 @@ const handleSubmit = (e) => {
     item.ProductName === search)
 
   arr2.map((item) => 
-          (setPicID(item.row),
-           console.log(item.row) ))
+          (setPicID(item.id),
+           console.log(item.id) ))
 
    console.log(`This is the picID: ${picID}`); 
    
@@ -70,6 +68,50 @@ const handleSubmit = (e) => {
   return (
     <>
       {/* {search} */}
+
+      {picID && (
+        <>
+          {!menuOpen && (
+            <div className="galleryInvite">
+              <p>Like what you see?</p>
+              <button>Browse our full selection!</button>
+            </div>
+          )}
+          
+          <div className="homeCart">
+            <button className="homeCartbuttonC">
+              <p>Add to Cart</p>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </button>
+          </div>
+        </>
+      )}
+
+      {picID === null ? (
+        <p className="siteName">Aada Braids: African Hair Brading</p>
+      ) : (
+        <img
+          className="resultPic"
+          src={picID != null ? ImageData[picID - 1] : null}
+        ></img>
+      )}
+
+      {picID === null ? (
+        <div className="linkAndOr">
+          <button className="galleryLink">
+            {" "}
+            Browse our Selection!
+            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/conukogu/eComm/sec/product.html"></a>
+          </button>
+          <p className="OR">OR</p>
+        </div>
+      ) : null}
 
       <form className="homeSearch" onSubmit={(e) => handleSubmit(e)}>
         <input
@@ -90,55 +132,6 @@ const handleSubmit = (e) => {
         </datalist>
         <input className="homeSubmit" type="submit" value="Submit"></input>
       </form>
-      
-
-      {picID === null ? (
-        <p className="siteName">Aada Braids: African Hair Brading</p>
-      ) : (
-        
-        <img
-          className="resultPic"
-          src={ 
-            picID != null
-              ? ImageData[picID-1]
-              : null
-          }
-        ></img>
-        
-
-      )}
-
-      {picID === null ? (
-        <div className="linkAndOr">
-          <button className="galleryLink">
-            {" "}
-            <p>Browse our Selection!</p>
-            <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/conukogu/eComm/sec/product.html"></a>
-          </button>
-          <p className="OR">OR</p>
-        </div>
-      ) : null}
-
-      {picID &&  (
-        <>
-          <div className="homeCart">
-            <button className="homeCartbutton">
-              <p>Add to Cart</p>
-              <select>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </button>
-          </div>
-          {!menuOpen && <div className="galleryInvite">
-            <p>Like what you see?</p>
-            <button>Browse our full selection!</button>
-          </div>}
-        </>
-      )}
     </>
   );
 }
